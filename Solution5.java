@@ -41,7 +41,7 @@ import java.util.Arrays;
  * 1 <= target <= 106
  *
  */
-class Solution5 {
+public class Solution5 {
     static final int P = 1000000007;
     static final int MAX_N = 100005;
 
@@ -90,23 +90,50 @@ class Solution5 {
     }
 }
 
-public class Solution5Test {
+class L2022211858_5_Test {
     public static void main(String[] args) {
         Solution5 solution = new Solution5();
 
-        // 测试用例 1
+        // 测试用例 1: 正常等价类测试
+        // 测试目的：验证多个元素情况下，最小和最大元素的和小于等于目标值时，正确返回子序列的数量。
+        // 用例设计：目标值为9，数组中不同的子序列都满足条件
         int[] nums1 = {3, 5, 6, 7};
         int target1 = 9;
         System.out.println(solution.numSubseq(nums1, target1));  // 输出: 4
 
-        // 测试用例 2
+        // 测试用例 2: 有重复元素的等价类测试
+        // 测试目的：验证数组中有重复元素时，算法是否能正确处理这些重复元素，并计算出满足条件的子序列数目。
+        // 用例设计：目标值为10，数组中存在重复的3值
         int[] nums2 = {3, 3, 6, 8};
         int target2 = 10;
         System.out.println(solution.numSubseq(nums2, target2));  // 输出: 6
 
-        // 测试用例 3
+        // 测试用例 3: 边界值测试
+        // 测试目的：验证数组中最大值和最小值接近目标值的情况，是否能够正确计算有效子序列数目。
+        // 用例设计：目标值为12，数组中的最大值和最小值接近边界
         int[] nums3 = {2, 3, 3, 4, 6, 7};
         int target3 = 12;
         System.out.println(solution.numSubseq(nums3, target3));  // 输出: 61
+
+        // 测试用例 4: 空数组边界测试
+        // 测试目的：验证空数组时，算法能否正确返回0。
+        // 用例设计：数组为空，目标值为任意值
+        int[] nums4 = {};
+        int target4 = 5;
+        System.out.println(solution.numSubseq(nums4, target4));  // 输出: 0
+
+        // 测试用例 5: 单元素数组边界测试
+        // 测试目的：验证只有一个元素时，算法能否处理并返回正确的子序列数。
+        // 用例设计：数组中只有一个元素，目标值大于或等于该元素
+        int[] nums5 = {5};
+        int target5 = 5;
+        System.out.println(solution.numSubseq(nums5, target5));  // 输出: 1
+
+        // 测试用例 6: 全部元素相同的边界测试
+        // 测试目的：验证数组中所有元素相同且满足条件的情况下，是否正确计算子序列数。
+        // 用例设计：数组中所有元素相同，目标值足够大，可以包含所有元素的子序列
+        int[] nums6 = {4, 4, 4, 4};
+        int target6 = 10;
+        System.out.println(solution.numSubseq(nums6, target6));  // 输出: 15
     }
 }
